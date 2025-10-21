@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Registration Form</title>
+  <style>
+    :root {
+      --dark-blue: #001f3f;
+      --light-blue: #0ea5b7;
+      --card: #012a57;
+      --muted: #8ecae6;
+      --text: #e0f7ff;
+      --glass: rgba(255, 255, 255, 0.05);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: "Garamond", "Hanson", "Bembo", Georgia, serif;
+      background: url(galaxy.png) no-repeat center center fixed;
+      background-size: cover;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 28px auto;
+      padding: 22px;
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--light-blue);
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 4px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: var(--light-blue);
+      border: none;
+      border-radius: 8px;
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: rgba(14, 165, 183, 0.8);
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+
+    .toggle-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px; 
+      height: 40px; 
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      border-radius: 50%; 
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px; 
+    }
+
+    .toggle-button:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <div class="container">
+    <button class="toggle-button" id="toggleTransparency">☀️</button>
+    <h1>Student Registration Form</h1>
+    <form id="registrationForm">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="middleInitial">Middle Initial</label>
+      <input type="text" id="middleInitial" name="middleInitial" maxlength="1" required>
+
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="1" max="100" required>
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" required placeholder="11-digit number">
+
+      <label for="barangay">Barangay</label>
+      <input type="text" id="barangay" name="barangay" required>
+
+      <label for="city">City</label>
+      <input type="text" id="city" name="city" required>
+
+      <label for="course">Course/Program of Study</label>
+      <select id="course" name="course" required>
+        <option value="" disabled selected>Select Course</option>
+        <option value="Bachelor of Industrial Technology">Bachelor of Industrial Technology</option>
+        <option value="Bachelor of Science in Information Technology">Bachelor of Science in Information Technology</option>
+        <option value="Bachelor of Science in Computer Science">Bachelor of Science in Computer Science</option>
+        <option value="Bachelor of Arts in Communication">Bachelor of Arts in Communication</option>
+      </select>
+
+      <label for="yearLevel">Year Level</label>
+      <select id="yearLevel" name="yearLevel" required>
+        <option value="" disabled selected>Select Year Level</option>
+        <option value="1st Year">1st Year</option>
+        <option value="2nd Year">2nd Year</option>
+        <option value="3rd Year">3rd Year</option>
+        <option value="4th Year">4th Year</option>
+      </select>
+
+      <label for="previousSchool">Previous School/Institution</label>
+      <input type="text" id="previousSchool" name="previousSchool" required>
+
+      <label for="emergencyContactName">Emergency Contact Name</label>
+      <input type="text" id="emergencyContactName" name="emergencyContactName" required>
+
+      <label for="emergencyContactPhone">Emergency Contact Phone Number</label>
+      <input type="tel" id="emergencyContactPhone" name="emergencyContactPhone" pattern="[0-9]{11}" required placeholder="11-digit number">
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Registration successful!');
+    });
+
+    document.getElementById('toggleTransparency').addEventListener('click', function() {
+      const container = document.querySelector('.container');
+      if (container.style.backgroundColor === 'rgba(1, 42, 87, 0.7)') {
+        container.style.backgroundColor = 'rgba(1, 42, 87, 1)';
+      } else {
+        container.style.backgroundColor = 'rgba(1, 42, 87, 0.7)';
+      }
+    });
+  </script>
+</body>
+</html>
+
+
